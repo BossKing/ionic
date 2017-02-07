@@ -1056,6 +1056,15 @@ export class NavControllerBase extends Ion implements NavController {
     this._viewport = val;
   }
 
+  resize() {
+    const active = this.getActive();
+    if (!active) {
+      return;
+    }
+    const content = active.getIONContent();
+    content && content.resize();
+  }
+
 }
 
 let ctrlIds = -1;
